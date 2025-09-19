@@ -1,9 +1,10 @@
 import geopandas as gpd
 import os 
 
+PATH = "./data/liste_des_musees_franciliens.geojson"
+
 def read_data(): 
 
-    PATH = "./data/liste_des_musees_franciliens.geojson"
     if not os.path.exists(PATH):
         raise FileNotFoundError(f"Fichier {PATH} introuvable")
 
