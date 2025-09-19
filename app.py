@@ -14,8 +14,10 @@ if st.button("Choisir un musée"):
     # Affichage du musée choisi
     st.success(f"Musée choisi : {name}")
 
-    # Lien vers le site officiel (si disponible)
+    # Normaliser l'URL : si elle ne commence pas par http(s), on ajoute https://
     if pd.notna(url) and url.strip() != "":
+        if not url.startswith(("http://", "https://")):
+            url = "https://" + url.strip()
         st.markdown(f"[🌐 Site officiel]({url})")
 
     # Lien vers Google Maps
