@@ -1,17 +1,16 @@
-stages:
-  - test
-  - build
+name: Python CI
 
-test:
-  image: python:3.10
-  stage: test
-  script:
-    - pip install -r requirements.txt
+on: [push, pull_request]   # déclenché à chaque push ou PR
 
-build:
-  image: docker:24
-  stage: build
-  services:
-    - docker:dind
-  script:
-    - docker build -t greeting-app .
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - run: pip install -r requirements.txt
+    - run: pip install pytest
+    - run: pytest
