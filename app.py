@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from choose_museum import main as choose_museum
 
-st.title("🎨 Choisir un musée francilien au hasard")
+st.title("🎨 AléaTour in Paris")
 
 if st.button("Choisir un musée"):
     museum = choose_museum().reset_index(drop=True)  # remet l’index à 0
@@ -10,6 +10,8 @@ if st.button("Choisir un musée"):
     url = museum.loc[0, "url"]
     lat = museum.loc[0, "latitude"]
     lon = museum.loc[0, "longitude"]
+    
+    st.markdown("TODO : ajouter les piscines, les parcs les plus proches ...")
 
     # Affichage du musée choisi
     st.success(f"Musée choisi : {name}")

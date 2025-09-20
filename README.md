@@ -14,10 +14,10 @@ Cloner le dépôt :
 
 ```bash
 git clone https://github.com/basile-desjuzeur/Tooling-for-ds/
-cd musee-roulette
+cd final-project
 ```
 
-Lancer le projet en local : 
+Lancer le projet en local :
 
 ```python
 streamlit run app.py
